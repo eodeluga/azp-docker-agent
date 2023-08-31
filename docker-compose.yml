@@ -1,0 +1,14 @@
+version: '3.1'
+services:
+  azp-docker-agent:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    image: dockeragent:latest
+    volumes:
+      - $DOCKER_DATA/azp-docker-agent:/azp
+    env_file:
+      - .env
+    container_name: azp-docker-agent
+    command: bash -c 'chmod +x /azp/start.sh && /azp/start.sh'
