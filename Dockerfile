@@ -17,7 +17,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommend
 # Can be 'linux-x64', 'linux-arm64', 'linux-arm', 'rhel.6-x64'.
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
-RUN apt update && apt install -y docker-compose sshpass ssh
+RUN apt update && apt install -y docker-compose ssh
 
 WORKDIR /azp
 COPY ./start.sh ./azp/
