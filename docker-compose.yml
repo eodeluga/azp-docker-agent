@@ -7,8 +7,8 @@ services:
     restart: unless-stopped
     image: dockeragent:latest
     volumes:
-      - $DOCKER_DATA/azp-docker-agent:/azp
+      - $DOCKER_DATA/azp-docker-agent/azp:/azp
     env_file:
       - .env
     container_name: azp-docker-agent
-    command: bash -c 'chmod +x /azp/start.sh && /azp/start.sh'
+    command: bash -c 'chmod +x /start.sh && /start.sh'
